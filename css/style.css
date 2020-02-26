@@ -12,6 +12,180 @@
     -ms-overflow-style: scrollbar;
   }
 
+  html,body{
+    padding: 10px 0 0 0;
+    margin: 0;
+}
+.galleryContainer{
+    width: 100%;
+    height: 400px;
+    max-width: 1000px;
+    margin: auto;
+    user-select: none;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.galleryContainer .slideShowContainer{
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    position: relative;
+}
+.galleryContainer .slideShowContainer #playPause{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    background-image: url(images/playPause.png);
+    background-repeat: no-repeat;
+    z-index: 5;
+    background-size: cover;
+    margin: 5px;
+    cursor: pointer;
+}
+.galleryContainer .slideShowContainer #playPause:hover{
+    opacity: .7;
+}
+.galleryContainer .slideShowContainer .imageHolder{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+}
+.galleryContainer .slideShowContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.imageHolder img {    
+width: 180px;
+height: 180px;
+margin-top: 10px;
+
+}
+.galleryContainer .slideShowContainer .imageHolder .captionText{
+    display: none;
+}
+
+.galleryContainer .slideShowContainer .leftArrow,.galleryContainer .slideShowContainer .rightArrow{
+    width: 50px;
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    transition: background 0.5s;
+    height: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.galleryContainer .slideShowContainer .rightArrow{
+    left: auto;
+    right: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.galleryContainer .slideShowContainer .leftArrow:hover,.galleryContainer .slideShowContainer .rightArrow:hover{
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.galleryContainer .arrow.arrowLeft{
+    transform: rotateZ(-135deg);
+}
+.galleryContainer .arrow.arrowRight{
+    transform: rotateZ(45deg);
+}
+
+
+.galleryContainer .slideShowContainer>.captionTextHolder{
+    position: absolute;
+    /* bottom: 0; */
+    z-index: 1;  
+    font-family: sans-serif;
+    font-size: 20px;  
+    overflow: hidden;
+}
+.galleryContainer .slideShowContainer>.captionTextHolder>.captionText{
+    margin: 0;
+}
+
+.galleryContainer #dotsContainer{
+    width: 100%;
+    height: 10%;
+    margin-left: 19%;
+    padding-top: -10px;
+    box-sizing: border-box;
+}
+.galleryContainer #dotsContainer .dots{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 20px;
+    background-color: #bbb;
+    cursor: pointer;
+    transition:background-color 0.5s;
+}
+.galleryContainer #dotsContainer .dots:first-child{
+    margin-left: 0;
+}
+.galleryContainer #dotsContainer .dots:hover,.galleryContainer #dotsContainer .dots.active{
+    background-color: #03C97D;
+}
+
+
+
+
+.galleryContainer .moveLeftCurrentSlide{
+    animation-name: moveLeftCurrent;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+
+}
+.galleryContainer .moveLeftNextSlide{
+    animation-name: moveLeftNext;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+@keyframes moveLeftCurrent {
+    from {margin-left: 0;opacity: 1;}
+    to {margin-left: -100%;opacity: 1;}
+}
+@keyframes moveLeftNext {
+    from {margin-left: 100%;opacity: 1;}
+    to {margin-left: 0%;opacity: 1;}
+}
+
+
+.galleryContainer .moveRightCurrentSlide{
+    animation-name: moveRightCurrent;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+.galleryContainer .moveRightPrevSlide{
+    animation-name: moveRightPrev;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+@keyframes moveRightCurrent {
+    from {margin-left: 0;opacity: 1;}
+    to {margin-left: 100%;opacity: 1;}
+}
+@keyframes moveRightPrev {
+    from {margin-left: -100%;opacity: 1;}
+    to {margin-left: 0%;opacity: 1;}
+}
+
+    
+
   .container {
     width: 100%;
     padding-right: 15px;
@@ -2750,28 +2924,28 @@
    */
   @font-face {
     font-family: "Noto Sans";
-    src: url("../fonts/subset-NotoSans-Medium.woff2") format("woff2"), url("../fonts/subset-NotoSans-Medium.woff") format("woff");
+    src: url("../fonts/NotoSans-Medium.woff") format("woff2"), url("../fonts/subset-NotoSans-Medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: "Noto Sans";
-    src: url("../fonts/subset-NotoSans-SemiBold.woff2") format("woff2"), url("../fonts/subset-NotoSans-SemiBold.woff") format("woff");
+    src: url("../fonts/NotoSans-SemiBold.woff2") format("woff2"), url("../fonts/subset-NotoSans-SemiBold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: "Noto Sans";
-    src: url("../fonts/subset-NotoSans-Regular.woff2") format("woff2"), url("../fonts/subset-NotoSans-Regular.woff") format("woff");
+    src: url("../fonts/NotoSans-Regular.woff2") format("woff2"), url("../fonts/subset-NotoSans-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: "Noto Sans";
-    src: url("../fonts/subset-NotoSans-Light.woff2") format("woff2"), url("../fonts/subset-NotoSans-Light.woff") format("woff");
+    src: url("../fonts/NotoSans-Light.woff2") format("woff2"), url("../fonts/subset-NotoSans-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -3206,7 +3380,7 @@
   
   .hero {
     padding: 90px 0;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     background: url("../img/hero-bg-img.png") no-repeat left center;
     background-size: cover;
   }
@@ -3988,6 +4162,10 @@
     }
     .links__item:last-child {
       margin-bottom: 0;
+    }
+
+    .item-description {
+        text-align: center;
     }
   
     .hero {
