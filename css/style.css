@@ -120,6 +120,7 @@ margin-top: 10px;
     padding-top: -10px;
     box-sizing: border-box;
 }
+
 .galleryContainer #dotsContainer .dots{
     display: inline-block;
     width: 15px;
@@ -4337,6 +4338,7 @@ margin-top: 10px;
 
   @media screen and (max-width: 500px) {
 
+   
     .img_giovanni {
      text-align: center;
      margin: auto;
